@@ -116,14 +116,15 @@ def main():
     img = np.load('img.npy')
     lab = np.load('lab.npy')
 
-    datagen1 = keras.preprocessing.image.ImageDataGenerator(rotation_range=50,
+    datagen2 = keras.preprocessing.image.ImageDataGenerator(rotation_range=50,
                                                            width_shift_range=2.0,
                                                            height_shift_range=2.0,
                                                            zoom_range=0.5, fill_mode='nearest',
                                                            horizontal_flip=True, vertical_flip=True,
                                                            rescale=None)
 
-    iterator = datagen1.flow(img, lab, batch_size=32, shuffle=True)
+
+    iterator = datagen2.flow(img, lab, batch_size=32, shuffle=True)
 
     with tf.Session() as sess:
         sess.run([tf.global_variables_initializer(), tf.local_variables_initializer()])
