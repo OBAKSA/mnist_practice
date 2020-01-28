@@ -113,27 +113,27 @@ def main():
     write_tfrecord()
     check('Example.tfrecord')
 
-    img2 = np.load('img.npy')
+    img = np.load('img.npy')
     lab = np.load('lab.npy')
 
-    datagen = keras.preprocessing.image.ImageDataGenerator(rotation_range=50,
+    datagen1 = keras.preprocessing.image.ImageDataGenerator(rotation_range=50,
                                                            width_shift_range=2.0,
                                                            height_shift_range=2.0,
                                                            zoom_range=0.5, fill_mode='nearest',
                                                            horizontal_flip=True, vertical_flip=True,
                                                            rescale=None)
 
-    iterator = datagen.flow(img2, lab, batch_size=32, shuffle=True)
+    iterator = datagen1.flow(img, lab, batch_size=32, shuffle=True)
 
     with tf.Session() as sess:
         sess.run([tf.global_variables_initializer(), tf.local_variables_initializer()])
         epoch = 100
         for step in range(epoch):
-            img_batch_aug1, lab_batch_aug1 = iterator.next()
+            img_batch_aug, lab_batch_aug = iterator.next()
 
 
-            img_batch_aug1 += 1.0
-            lab_batch_aug1 += 1.0
+            img_batch_aug += 1.0
+            lab_batch_aug += 1.0
 
 
     img, lab, h, w, img_shape = read_tfrecord()
