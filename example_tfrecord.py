@@ -110,9 +110,8 @@ def read_tfrecord():
 
 
 def main():
-    # write_tfrecord()
-#    check('Example.tfrecord')
-    temp = tf.examples.tutorials.mnist
+    write_tfrecord()
+    check('Example.tfrecord')
 
     img = np.load('img.npy')
     lab = np.load('lab.npy')
