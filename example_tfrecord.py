@@ -129,11 +129,11 @@ def main():
         sess.run([tf.global_variables_initializer(), tf.local_variables_initializer()])
         epoch = 100
         for step in range(epoch):
-            img_batch_aug, lab_batch_aug = iterator.next()
+            img_batch_aug1, lab_batch_aug1 = iterator.next()
 
 
-            img_batch_aug += 1.0
-            lab_batch_aug += 1.0
+            img_batch_aug1 += 1.0
+            lab_batch_aug1 += 1.0
 
 
     img, lab, h, w, img_shape = read_tfrecord()
