@@ -2,18 +2,23 @@
 
 <MNIST classification>
 
-1.
+1)
 
 download all files including mnist.zip
 
 DO NOT use tensorflow.examples.tutorials.mnist library
 
-2.
+2)
 
-fill TODOs
+fill in the TODOs
 
 you should modify main.py code
 
+3)
+
+upload your modified codes and performance-written text file(result.txt)
+
+in your own repository
 
 usage: 
 
