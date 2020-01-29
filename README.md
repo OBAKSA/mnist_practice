@@ -2,9 +2,13 @@
 
 <MNIST classification>
 
+1.
+
 download all files including mnist.zip
 
-    DO NOT use tensorflow.examples.tutorials.mnist library
+DO NOT use tensorflow.examples.tutorials.mnist library
+
+2.
 
 fill TODOs
 
