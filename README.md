@@ -1,4 +1,4 @@
-# ISPL_Freshmen_practice
+# ISPL_Freshman_practice
 
 <MNIST classification>
 
