@@ -22,6 +22,11 @@ def _int64_feature(value):
     return tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))
 
 
+def _image_as_bytes(imagefile):
+    image = np.array(Image.open(imagefile))
+    image_raw = image.tostring()
+    return image_raw
+
 def make_example(img, lab):
     """ TODO: Return serialized Example from img, lab """
     pass
