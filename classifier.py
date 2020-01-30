@@ -55,7 +55,7 @@ class Classifier(object):
 
             try:
                 min_val_acc = 10000.
-                while True:
+                while not coord.should_stop():
                     global_step = sess.run(step)
                     print(global_step)
                     batch_loss, batch_acc, _ = sess.run([loss, tr_accuracy, optimizer])
