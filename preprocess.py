@@ -5,6 +5,7 @@ import glob
 # import matplotlib
 # matplotlib.use('TkAgg') 
 from matplotlib import pyplot as plt
+from PIL import Image
 
 
 def _bytes_feature(value):
