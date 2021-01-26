@@ -4,6 +4,7 @@ import os
 import tensorflow as tf
 from preprocess import *
 from classifier import Classifier
+
 FLAGS = tf.flags.FLAGS
 
 tf.flags.DEFINE_string('process', 'test', 'which process you want to do: write(write tfrecord file), train(train model), test(test model)')
