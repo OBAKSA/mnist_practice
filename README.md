@@ -2,23 +2,9 @@
 
 <MNIST classification>
 
-1)
+mnist_done에 학습에 사용한 train, val, test와 tfrecord 파일이 압축되어 있습니다.
 
-download all files including mnist.zip
-
-DO NOT use tensorflow.examples.tutorials.mnist library
-
-2)
-
-fill in the TODOs
-
-you should modify main.py code
-
-3)
-
-upload your modified codes and performance-written text file(result.txt)
-
-in your own repository
+result.txt에 학습 과정과 결과를 기록하였습니다.
 
 usage: 
 
