@@ -18,33 +18,35 @@ class Classifier(object):
             ## Conv Layer ##
 
             # layer 1
-            inputs = tf.nn.relu(
-                tf.layers.conv2d(x, 32, 3, 1, padding='SAME',
-                                 kernel_initializer=tf.contrib.layers.xavier_initializer()))
+            inputs = tf.layers.conv2d(x, 32, 3, 1, padding='SAME', kernel_initializer=tf.contrib.layers.xavier_initializer())
+            inputs = tf.layers.batch_normalization(inputs)
+            inputs = tf.nn.relu(inputs)
             inputs = tf.nn.dropout(inputs, dropout_rate)
             inputs = tf.contrib.layers.max_pool2d(inputs, 2, stride=2)
-            inputs = tf.layers.batch_normalization(inputs)
 
             # layer 2
-            inputs = tf.nn.relu(
-                tf.layers.conv2d(inputs, 64, 3, 1, padding='SAME',
-                                 kernel_initializer=tf.contrib.layers.xavier_initializer()))
+            inputs = tf.layers.conv2d(inputs, 64, 3, 1, padding='SAME', kernel_initializer=tf.contrib.layers.xavier_initializer())
+            inputs = tf.layers.batch_normalization(inputs)
+            inputs = tf.nn.relu(inputs)
             inputs = tf.nn.dropout(inputs, dropout_rate)
             inputs = tf.contrib.layers.max_pool2d(inputs, 2, stride=2)
-            inputs = tf.layers.batch_normalization(inputs)
 
-            ## Feature Layer ##
+            ## FC Layer ##
 
             # layer 3
             inputs = tf.contrib.layers.flatten(inputs)
-            inputs = tf.contrib.layers.fully_connected(inputs, 256, activation_fn=tf.nn.relu)
+            inputs = tf.contrib.layers.fully_connected(inputs, 256, activation_fn=None)
             inputs = tf.layers.batch_normalization(inputs)
+            inputs = tf.nn.relu(inputs)
+            inputs = tf.nn.dropout(inputs, dropout_rate)
 
             # layer 4
-            inputs = tf.contrib.layers.fully_connected(inputs, 128, activation_fn=tf.nn.relu)
+            inputs = tf.contrib.layers.fully_connected(inputs, 128, activation_fn=None)
             inputs = tf.layers.batch_normalization(inputs)
+            inputs = tf.nn.relu(inputs)
+            inputs = tf.nn.dropout(inputs, dropout_rate)
 
-            # layer 5
+            # output
             logit = tf.contrib.layers.fully_connected(inputs, 10, activation_fn=None)
 
         return logit

@@ -1,14 +1,14 @@
 <train>
 python main.py --process=train --datadir=./mnist/train_tfrecord --val_datadir=./mnist/val_tfrecord --epoch=3 --lr=1e-3 --ckptdir=./ckpt --batch=100 --restore=False
 
-step:: 0, loss= 2.290215, accuracy= 0.050000
-val accuracy= 0.170
-model saved in file: ./ckpt/model_0.170.ckpt-1
-step:: 1000, loss= 0.003995, accuracy= 1.000000
-val accuracy= 0.910
+step:: 0, loss= 2.353286, accuracy= 0.040000
+val accuracy= 0.160
+model saved in file: ./ckpt/model_0.160.ckpt-1
+step:: 1000, loss= 0.078296, accuracy= 0.970000
+val accuracy= 0.960
 model saved in file : ./ckpt/model.ckpt-1367
 
 <test>
 python main.py --process=test --datadir=./mnist/test_tfrecord --ckptdir=./ckpt
 
-number: 100, total acc: 90.4%
+number: 100, total acc: 93.6%
